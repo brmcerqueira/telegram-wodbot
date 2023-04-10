@@ -7,7 +7,7 @@
         {
             "name": "Launch Deno",
             "request": "launch",
-            "type": "pwa-node",
+            "type": "node",
             "program": "main.ts",
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "deno",
@@ -16,10 +16,7 @@
                 "--inspect-brk",
                 "--allow-all"
             ],
-            "attachSimplePort": 9229,
-            "env": {
-                "TOKEN": ""
-            }
+            "attachSimplePort": 9229
         }
     ]
 }

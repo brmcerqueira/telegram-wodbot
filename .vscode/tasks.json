@@ -8,10 +8,7 @@
             "type": "shell",  
             "command": "deno",
             "options": {
-                "cwd": "${workspaceFolder}",
-                "env": {
-                    "TOKEN": ""
-                }
+                "cwd": "${workspaceFolder}"
             },
             "args": [
                 "run",

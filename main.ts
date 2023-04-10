@@ -1,8 +1,21 @@
-import { TelegramBot, UpdateType } from "https://deno.land/x/telegram_bot_api/mod.ts"
+import { TelegramBot, UpdateType } from "https://deno.land/x/telegram_bot_api@0.4.0/mod.ts"
 
-const TOKEN = Deno.env.get("TOKEN");
+const TOKEN = Deno.env.get("WODBOT_TOKEN");
 if (!TOKEN) throw new Error("Bot token is not provided");
 const bot = new TelegramBot(TOKEN);
+
+await bot.setMyCommands(<any>{
+  commands: [{
+    command: "upload",
+    description: "Comando para fazer o upload da ficha"
+  }, {
+    command: "download",
+    description: "Comando para fazer o download da ficha"
+  }],
+  scope: {
+    type: "all_group_chats"
+  }
+})
 
 bot.on(UpdateType.Message, async ({ message }) => {
   const text = message.text || "I can't hear you";
