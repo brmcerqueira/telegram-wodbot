@@ -18,12 +18,22 @@ await bot.setMyCommands(<any>{
 })
 
 bot.on(UpdateType.Message, async ({ message }) => {
-  const text = message.text || "I can't hear you";
-  await bot.sendMessage({
-    chat_id: message.chat.id,
-    text: "Você disse: " + text,
-  });
+  console.log(message);
+  if (message.text?.startsWith("/download@vampire_the_masquerade_5th_bot")) {
+    await bot.sendMessage({
+      chat_id: message.chat.id,
+      text: "Sua ficha foi enviada com sucesso!",
+    });
+  }
+  else {
+    const text = message.text || "I can't hear you";
+    await bot.sendMessage({
+      chat_id: message.chat.id,
+      text: "Você disse: " + text,
+    });
+  }
 });
+
 
 bot.run({
   polling: true,
